@@ -12,7 +12,8 @@ using (HttpClient client = new HttpClient())
         //LinqFilter.FiltrarTodosOsGenerosMusicais(musicas);
         //LinqOrder.ExibirListaDeArtistasOrdenados(musicas);
         //LinqFilter.FiltrarArtistasPorGeneroMusical(musicas, "rock");
-        LinqFilter.FiltrarMusicasDeUmArtista(musicas, "Eminem");
+        //LinqFilter.FiltrarMusicasDeUmArtista(musicas, "Eminem");
+        LinqFilter.FiltrarMusicasPeloAno(musicas, 2002);
 
     } catch (Exception ex)
     {
