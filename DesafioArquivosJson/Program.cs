@@ -77,4 +77,32 @@ void Desafio4()
 
 }
 
-Desafio4();
+//Desafio4();
+
+void Desafio5()
+{
+    string caminho = "Usuarios.json";
+    List<Usuario> usuarios = new();
+
+    if (File.Exists(caminho))
+    {
+        string jsonString = File.ReadAllText(caminho);
+        usuarios = JsonSerializer.Deserialize<List<Usuario>>(jsonString);
+    }
+    else
+    {
+        Console.WriteLine("Caminho do arquivo não existe");
+        return;
+    }
+
+    Console.WriteLine("Filtro por idade - Insira uma idade");
+    int idade = int.Parse(Console.ReadLine()!);
+    var usuariosFiltrados = usuarios.Where( usuario => usuario.Idade == idade ).ToList();
+    foreach(Usuario usuario in usuariosFiltrados)
+    {
+        Console.WriteLine($"Nome : {usuario.Nome} - idade : {usuario.Idade}");
+    }
+
+}
+
+Desafio5();
