@@ -1,4 +1,5 @@
 ﻿
+using System.Text.Json;
 using DesafioArquivosJson.Modelos;
 
 void Desafio1()
@@ -15,4 +16,14 @@ void Desafio1()
     usuario.GerarArquivoJson();
 }
 
-Desafio1();
+//Desafio1();
+
+void Desafio2()
+{
+    string caminhoJson = "C:\\Users\\Tey\\source\\repos\\ScreenSound-4\\DesafioArquivosJson\\bin\\Debug\\net8.0\\Usuario-Thaigo.json";
+    string jstonString = File.ReadAllText(caminhoJson);
+    var usuario = JsonSerializer.Deserialize<Usuario>(jstonString);
+    Console.WriteLine($"Nome : {usuario.Nome}");
+}
+
+Desafio2();
