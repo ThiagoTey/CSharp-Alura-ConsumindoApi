@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel;
 using System.Text.Json;
 using DesafioArquivosJson.Modelos;
 
@@ -39,7 +40,12 @@ void Desafio3()
         {
             break;
         }
-        usuarios.Add(new Usuario(nome));
+        Console.WriteLine("Digite a idade");
+        int idade = int.Parse(Console.ReadLine()!);
+        Console.WriteLine("digite o email");
+        string email = Console.ReadLine()!;
+
+        usuarios.Add(new Usuario(nome, idade, email));
     }
 
     var json = JsonSerializer.Serialize(usuarios);
@@ -48,4 +54,27 @@ void Desafio3()
     Console.WriteLine("Arquivo gerado com sucesso em :" + Path.GetFullPath(nomeArquivoJson));
 }
 
-Desafio3();
+//Desafio3();
+
+void Desafio4()
+{
+    string caminho = "Usuarios.json";
+
+    if (File.Exists(caminho))
+    {
+        string jsonString = File.ReadAllText(caminho);
+        List<Usuario> usuarios = JsonSerializer.Deserialize<List<Usuario>>(jsonString);
+
+        foreach (Usuario usuario in usuarios)
+        {
+            Console.WriteLine($" - {usuario.Nome}");
+        }
+    } else
+    {
+        Console.WriteLine("Caminho do arquivo não existe");
+    }
+
+
+}
+
+Desafio4();
