@@ -26,4 +26,26 @@ void Desafio2()
     Console.WriteLine($"Nome : {usuario.Nome}");
 }
 
-Desafio2();
+//Desafio2();
+
+void Desafio3()
+{
+    List<Usuario> usuarios = new List<Usuario>();
+    while(true)
+    {
+        Console.WriteLine("Digite o nome de usuário ou 'sair' para sair");
+        string nome = Console.ReadLine()!;
+        if(nome == "sair")
+        {
+            break;
+        }
+        usuarios.Add(new Usuario(nome));
+    }
+
+    var json = JsonSerializer.Serialize(usuarios);
+    string nomeArquivoJson = "Usuarios.json";
+    File.WriteAllText(nomeArquivoJson, json);
+    Console.WriteLine("Arquivo gerado com sucesso em :" + Path.GetFullPath(nomeArquivoJson));
+}
+
+Desafio3();

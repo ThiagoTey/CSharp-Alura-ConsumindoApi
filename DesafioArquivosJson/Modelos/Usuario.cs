@@ -5,10 +5,10 @@ namespace DesafioArquivosJson.Modelos;
 internal class Usuario
 {
     public string Nome { get; set; }
-    public int Idade { get; set; }
-    public string Email { get; set; }
+    public int? Idade { get; set; }
+    public string? Email { get; set; }
 
-    public Usuario(string nome, int idade, string email)
+    public Usuario(string nome, int idade = 0, string email = null)
     {
         Nome = nome;
         Idade = idade;
